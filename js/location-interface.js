@@ -1,5 +1,11 @@
 var Bike = require('./../js/bike.js').bikeModule;
-var location = {lat: -43.999792, lng: 170.463352};
+var location = {lat: 45.529107, lng: -122.684015};
+var bikeCoorinates = [];
+
+$.getScript("https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js");
+$.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyCqegIeWzh-wLUrY_rCXWiXrS_SagIQWoI&callback=initMap", function() {
+  initMap(location);
+})
 
 function initMap(location) {
 
@@ -27,6 +33,7 @@ function initMap(location) {
       {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 }
 var locations = [
+  {lat: 45.529107, lng: -122.684015},
   {lat: -31.563910, lng: 147.154312},
   {lat: -33.718234, lng: 150.363181},
   {lat: -33.727111, lng: 150.371124},
@@ -49,7 +56,7 @@ var locations = [
   {lat: -42.734358, lng: 147.439506},
   {lat: -42.734358, lng: 147.501315},
   {lat: -42.735258, lng: 147.438000},
-  {lat: -43.999792, lng: 170.463352}
+
 ];
 
 $(document).ready(function() {
@@ -57,15 +64,11 @@ $(document).ready(function() {
   var currentBikeObject = new Bike();
 
   $('#search').click(function() {
-      $('#location').val();
     $('#viewMap').show();
     });
 
     $('#viewMap').click(function() {
-      $.getScript("https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js");
-      $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyCqegIeWzh-wLUrY_rCXWiXrS_SagIQWoI&callback=initMap", function() {
-        initMap(location);
-    })
+
 
   })
 
