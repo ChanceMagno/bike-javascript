@@ -1,6 +1,5 @@
 var Bike = require('./../js/bike.js').bikeModule;
-
-
+var googleApi = 'AIzaSyCqegIeWzh-wLUrY_rCXWiXrS_SagIQWoI'
 
 var displayBikes = function(bikeList) {
   bikeList.forEach(function(bike){
@@ -15,11 +14,14 @@ var displayBikes = function(bikeList) {
 
 };
 
-
 var location;
 
 $(document).ready(function() {
   var currentBikeObject = new Bike();
+
+  $('#here').click(function(){
+    currentBikeObject.getCoordinates();
+  })
 
   $('#search').click(function() {
     location = $('#location').val();
@@ -28,9 +30,10 @@ $(document).ready(function() {
     currentBikeObject.getBikes(location, displayBikes);
   });
 
-    $("#next").click(function(){
-      currentBikeObject.next();
-      $(".bike-results").empty();
-      currentBikeObject.getBikes(location, displayBikes);
-    })
+  $(window).scroll(function() {
+    if($(window).scrollTop() == $(document).height() - $(window).height()) {
+           currentBikeObject.next();
+           currentBikeObject.getBikes(location, displayBikes);
+    }
+  });
 });

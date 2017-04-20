@@ -1,3 +1,7 @@
+#viewMap {
+  display: none;
+}
+
 .bike-search {
   margin-top: 60px;
 }
@@ -58,7 +62,7 @@ body { overflow: hidden; }
     25% { left: 25%; }
     50% { left: 50%; }
     75% { left: 75%; }
-    100% { left: 150%; }
+    100% { left: 100%; }
 }
 
 body { overflow: scroll; }
@@ -67,4 +71,9 @@ body { overflow: scroll; }
     left: 75%;
     margin: 7em -244px;
     animation: slide 3s infinite;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
 }
